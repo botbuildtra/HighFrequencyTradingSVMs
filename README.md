@@ -22,4 +22,6 @@ Our data was gathered from QuantQuote.com, a reputable dealer of fine-resolution
 Our dataset had some missing values for both tickers. From QuantQuote's website: "Missing data for certain minutes generally means that no trades occurred during that minute." 
 We handled this by removing entries from both datasets in which at least 1 of the tickers had a missing entry. The reasoning behind this was that is that pairs trading is impossible in such instances. This only occured for about 0.1% of our dataset. 
 
+![goog_googl](imgs/goog_googl.png)
 
+## Feature Generation
