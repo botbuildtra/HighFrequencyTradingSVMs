@@ -4,8 +4,11 @@ This project implements a high frequency trading strategy that utilizes Support 
 This idea is heavily inspired by the following paper: http://cs229.stanford.edu/proj2015/028_report.pdf by Jiayu Wu. This project includes modifications into an actual trading strategy that uses rebalancing. 
 
 TODO: Further Model Tuning
+
 TODO: Model Explanations
+
 TODO: Results Graphs
+
 TODO: Diagnostic Graphs on labelling
 
 ## Abstract
