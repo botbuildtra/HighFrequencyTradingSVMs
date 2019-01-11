@@ -1,7 +1,7 @@
 # High Frequency Trading using Support Vector Machines
 This project implements a high frequency trading strategy that utilizes Support Vector Machines to capture statistical arbitrage in the pricing of Class A and Class C Google stocks. 
 
-This idea was inspired by the following paper: http://cs229.stanford.edu/proj2015/028_report.pdf by Jiayu Wu. 
+This idea is heavily inspired by the following paper: http://cs229.stanford.edu/proj2015/028_report.pdf by Jiayu Wu. This project includes modifications into an actual trading strategy that uses rebalancing. 
 
 ## Abstract
 Pairs Trading is a market-neutral trading strategy that matches a long position with a short position in a pair of highly correlated instruments such as two stocks. 
