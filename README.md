@@ -3,6 +3,16 @@ This project implements a high frequency trading strategy that utilizes Support 
 
 This idea is heavily inspired by the following paper: http://cs229.stanford.edu/proj2015/028_report.pdf by Jiayu Wu. This project includes modifications into an actual trading strategy that uses rebalancing. 
 
+TODO: Further Model Tuning
+
+TODO: Model Explanations
+
+TODO: Results Graphs
+
+TODO: Diagnostic Graphs on labelling
+
+TODO: Labelled profit vs. Unlabelled profit
+
 ## Abstract
 Pairs Trading is a market-neutral trading strategy that matches a long position with a short position in a pair of highly correlated instruments such as two stocks. 
 The idea is to wait for a alteration of the spread of the two stocks and then long the underperforming instrument while simultaneously shorting the overperforming instrument. 
