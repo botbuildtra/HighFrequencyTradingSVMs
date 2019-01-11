@@ -35,3 +35,5 @@ We handled this by removing entries from both datasets in which at least 1 of th
 ![goog_googl](imgs/goog_googl.png)
 
 ## Feature Generation
+The canonical pairs trading spread model looks like: 
+$$\frac{dA_t}{A_t} = \alpha dt + \beta\frac{dB_t}{B_t} + dX_t$$
