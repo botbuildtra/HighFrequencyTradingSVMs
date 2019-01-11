@@ -11,6 +11,8 @@ TODO: Results Graphs
 
 TODO: Diagnostic Graphs on labelling
 
+TODO: Labelled profit vs. Unlabelled profit
+
 ## Abstract
 Pairs Trading is a market-neutral trading strategy that matches a long position with a short position in a pair of highly correlated instruments such as two stocks. 
 The idea is to wait for a alteration of the spread of the two stocks and then long the underperforming instrument while simultaneously shorting the overperforming instrument. 
