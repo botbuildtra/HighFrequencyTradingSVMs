@@ -34,12 +34,19 @@ We handled this by removing entries from both datasets in which at least 1 of th
 
 ![goog_googl](imgs/goog_googl.png)
 
-## Feature Generation
+## Pairs Trading Model
 The canonical pairs trading spread model looks like: 
 
 ![spreadmodel](imgs/pairs_model.gif)
 
 where ![datat](imgs/datat.gif) represents the returns of instrument ![A](imgs/A.gif) at time ![t](imgs/t.gif) and 
 ![dbtbt](imgs/dbtbt.gif) represents the returns of instrument ![B](imgs/B.gif) at time ![t](imgs/t.gif). 
+
+![xt](imgs/xt.gif) represents the spread of the returns at time ![t](imgs/t.gif). One of the assumptions of this model 
+is the fact that this residual term is mean-reverting. We can assume this especially since the intrinsic characteristics 
+of both securities in this instance are very similar. 
+
+![drift](imgs/drift.gif) represents the drift term. Sometimes the spread begins to trend instead of reverting to the original mean. The drift term is one of the biggest factors of risk in pairs trading. For our problem, we assume that the drift term is negligible compared to the returns of either instrument. 
+
 ![beta](imgs/beta.gif) represents the hedge ratio which serves to normalize the volatility between the instruments. 
-![beta](imgs/beta.gif) tells us how much of instrument ![B](imgs/B.gif) to long/short for every 1 unit of ![A](imgs/A.gif) to long/short. 
+![beta](imgs/beta.gif) tells us how much of instrument ![B](imgs/B.gif) to long/short for every 1 unit of ![A](imgs/A.gif) to long/short. Past work has considered assumed that ![beta](imgs/beta.gif) remains constant over the duration of the dataset. For our dataset, however, different behavior in the spread is apparent in 2017 and 2018. This might be due to some change of intrinsic characteristics of the instruments. For our solution, we will assume treat ![beta](imgs/beta.gif) as variable and recalculate it periodically.
