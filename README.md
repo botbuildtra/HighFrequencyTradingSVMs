@@ -49,4 +49,7 @@ of both securities in this instance are very similar.
 ![drift](imgs/drift.gif) represents the drift term. Sometimes the spread begins to trend instead of reverting to the original mean. The drift term is one of the biggest factors of risk in pairs trading. For our problem, we assume that the drift term is negligible compared to the returns of either instrument. 
 
 ![beta](imgs/beta.gif) represents the hedge ratio which serves to normalize the volatility between the instruments. 
-![beta](imgs/beta.gif) tells us how much of instrument ![B](imgs/B.gif) to long/short for every 1 unit of ![A](imgs/A.gif) to long/short. Past work has considered assumed that ![beta](imgs/beta.gif) remains constant over the duration of the dataset. For our dataset, however, different behavior in the spread is apparent in 2017 and 2018. This might be due to some change of intrinsic characteristics of the instruments. For our solution, we will assume treat ![beta](imgs/beta.gif) as variable and recalculate it periodically.
+![beta](imgs/beta.gif) tells us how much of instrument ![B](imgs/B.gif) to long/short for every 1 unit of ![A](imgs/A.gif) to long/short. We will use the close prices to calculate percent returns and for the other features. Past work has considered assumed that ![beta](imgs/beta.gif) remains constant over the duration of the dataset. For our dataset, however, different behavior in the spread is apparent in 2017 and 2018. This might be due to some change of intrinsic characteristics of the instruments. For our solution, we will assume treat ![beta](imgs/beta.gif) as variable and recalculate it periodically. 
+
+## Ornstein-Uhlenbeck Stochastic Process
+
