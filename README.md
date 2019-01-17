@@ -39,7 +39,7 @@ The canonical pairs trading spread model looks like:
 
 ![spreadmodel](imgs/pairs_model.gif)
 
-where ![datat](imgs/datat.gif) represents the returns of instrument ![imgs/A](A.gif) at time ![imgs/t](t.gif) and 
-![dbtbt](imgs/dbtbt.gif) represents the returns of instrument ![imgs/B](B.gif) at time ![imgs/t](t.gif). 
+where ![datat](imgs/datat.gif) represents the returns of instrument ![A](imgs/A.gif) at time ![t](imgs/t.gif) and 
+![dbtbt](imgs/dbtbt.gif) represents the returns of instrument ![B](imgs/B.gif) at time ![t](imgs/t.gif). 
 ![beta](imgs/beta.gif) represents the hedge ratio which serves to normalize the volatility between the instruments. 
-![beta](imgs/beta.gif) tells us how much of instrument ![imgs/B](B.gif) to long/short for every 1 unit of ![imgs/A](A.gif) to long/short. 
+![beta](imgs/beta.gif) tells us how much of instrument ![B](imgs/B.gif) to long/short for every 1 unit of ![A](imgs/A.gif) to long/short. 
