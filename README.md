@@ -102,18 +102,18 @@ These are the steps to follow to process the data for the Support Vector Machine
 
 4. Run linear regression on the features of the training partition of instrument A and B. 
 This serves to estimate ![beta](imgs/beta.gif) according to the pairs trading spread model mentioned above. 
-It also calculates the residual term ![dxt](imgs\dxt.gif).
+It also calculates the residual term ![dxt](imgs/dxt.gif).
 
-5. Construct the spread terms ![xt](imgs\xt.gif) with the following equation: ![dxtxt](dxtxt.gif).
+5. Construct the spread terms ![xt](imgs/xt.gif) with the following equation: ![dxtxt](imgs/dxtxt.gif).
 
 6. Run lag 1 auto-regression on spread terms to get parameters according to OU model. 
 
 7. Calculate T-scores for each individual feature according to the following equation:
 
-8. Transform the testing dataset by finding the spread residuals ![dxt](imgs\dxt.gif) 
+8. Transform the testing dataset by finding the spread residuals ![dxt](imgs/dxt.gif) 
 by using the ![beta](imgs/beta.gif) obtained in the training set. 
 
-9. Construct the spread terms ![xt](imgs\xt.gif) of the testing dataset using the following equation: ![dxtxt](dxtxt.gif).
+9. Construct the spread terms ![xt](imgs/xt.gif) of the testing dataset using the following equation: ![dxtxt](imgs/dxtxt.gif).
 
 
 
