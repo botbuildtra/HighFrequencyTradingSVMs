@@ -1,6 +1,8 @@
 # High Frequency Trading using Support Vector Machines
 This project implements a high frequency trading strategy that utilizes Support Vector Machines to capture statistical arbitrage in the pricing of Class A and Class C Google stocks. 
 
+We will demonstrate a trading algorithm that earns great profits (~53% returns over 2 years) with a sharpe ratio of 17.
+
 This idea is heavily inspired by the following paper: http://cs229.stanford.edu/proj2015/028_report.pdf by Jiayu Wu. This project includes modifications into an actual trading strategy that uses rebalancing. 
 
 TODO: Further Model Tuning
@@ -72,12 +74,36 @@ and ![weiner](imgs/weiner.gif) denotes the Weiner process (standard Brownian mot
 In this project, we will start from the difference of returns at time ![t](imgs/t.gif). Then we will 
 integrate this process and use a linear regression to estimate the parameters ![theta](imgs/theta.gif),![mu](imgs/mu.gif), and ![sigma](imgs/sigma.gif). 
 
-These parameters are used later for feature creation. 
+These parameters are used later for feature generation. 
 
-## Feature Generation
+## Features
 
 Typically, trading strategies will only apply the spread model to the price of the instruments. In this project, however, 
 we will extend it to also include the spread of some technical indicators, namely Simple Moving Average (SMA), Exponentially Weighted Moving Average (EWMA), Money Flow Index (Money Flow Index), and Relative Strength Index (Relative Strength Index). 
 
 The calculation for each of these features is detailed here: 
 
+![sma](imgs/sma.png)
+
+![ewma](imgs/ewma.png)
+
+![mfi](imgs/mfi.png)
+
+![rsi](imgs/rsi.png)
+
+We can extend the spread model to include these technical indicators in addition to price because they exhibit similar 
+behaviors for both instruments of the pair. Furthermore, it will provide more context to the classifier in addition to the price. 
+
+## Feature Generation Steps
+
+1. Split dataset into train and test partitions.
+
+2. Calculate features (price, sma, ewma, mfi, rsi) for each instrument.
+
+3. Calculate percent change for each feature.
+
+4. Run linear regression on the features of the training partition of instrument A and B. 
+This serves to estimate ![beta](imgs/beta.gif) according to the pairs trading spread model mentioned above. 
+It also calculates the residual term (
+
+2. 
