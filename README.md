@@ -117,7 +117,8 @@ by using the ![beta](imgs/beta.gif) obtained in the training set.
 
 10. Calculate the T-scores for each individual feature in the testing partition by using the ![mu](imgs/mu.gif) 
 and ![sigma](imgs/sigma.gif) calculated for the training partition for each feature. 
-Use the following equation for each feature: ![tscore](imgs/tscore.gif)
+Use the following equation for each feature: 
+![tscore](imgs/tscore.gif)
 
 At the end of this step, we have fitted the pairs trading spread model parameters and the OU process parameters to the training partition. 
 
