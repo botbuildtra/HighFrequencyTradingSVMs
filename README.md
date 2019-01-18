@@ -57,7 +57,9 @@ of both securities in this instance are very similar.
 The Ornstein-Uhlenbeck Stochastic Process is used in finance to model the volatility of the underlying asset price process. The process can be considered to be a modification of the random walk (Weiner Process) in which the properties of the process have been changed so that there is a tendency to walk back towards a central location. The tendency to move back towards a central location is greater when the process is further away from the mean. Thus, this process is called "mean-reverting", and has many direct applications in pairs trading. 
 
 The OU process satisfies the following stochastic differential equation: 
+
 ![ou](imgs/ou.gif)
+
 where ![theta](imgs/theta.gif) > 0, ![mu](imgs/mu.gif), ![sigma](imgs/sigma.gif) represent parameters, 
 and ![weiner](imgs/weiner.gif) denotes the Weiner process (standard Brownian motion process).
 
