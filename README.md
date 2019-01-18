@@ -72,9 +72,9 @@ and ![weiner](imgs/weiner.gif) denotes the Weiner process (standard Brownian mot
 In this project, we will start from the difference of returns at time ![t](imgs/t.gif). Then we will 
 integrate this process and use a linear regression to estimate the parameters ![theta](imgs/theta.gif),![mu](imgs/mu.gif), and ![sigma](imgs/sigma.gif). 
 
-These parameters are used later for feature creation. 
+These parameters are used later for feature generation. 
 
-## Feature Generation
+## Features
 
 Typically, trading strategies will only apply the spread model to the price of the instruments. In this project, however, 
 we will extend it to also include the spread of some technical indicators, namely Simple Moving Average (SMA), Exponentially Weighted Moving Average (EWMA), Money Flow Index (Money Flow Index), and Relative Strength Index (Relative Strength Index). 
@@ -88,3 +88,8 @@ The calculation for each of these features is detailed here:
 ![mfi](imgs/mfi.png)
 
 ![rsi](imgs/rsi.png)
+
+We can extend the spread model to include these technical indicators in addition to price because they exhibit similar 
+behaviors for both instruments of the pair. Furthermore, it will provide more context to the classifier in addition to the price. 
+
+## Feature Generation
