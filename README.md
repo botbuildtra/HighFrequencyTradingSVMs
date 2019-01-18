@@ -108,9 +108,7 @@ It also calculates the residual term ![dxt](imgs/dxt.gif).
 
 6. Run lag 1 auto-regression on spread terms to get parameters according to OU model. 
 
-7. Calculate T-scores for each individual feature according to the following equation:
-
-![tscore](imgs/tscore.gif)
+7. Calculate T-scores for each individual feature according to the following equation: ![tscore](imgs/tscore.gif)
 
 8. Transform the testing dataset by finding the spread residuals ![dxt](imgs/dxt.gif) 
 by using the ![beta](imgs/beta.gif) obtained in the training set. 
