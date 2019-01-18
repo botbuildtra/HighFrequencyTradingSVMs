@@ -81,3 +81,10 @@ we will extend it to also include the spread of some technical indicators, namel
 
 The calculation for each of these features is detailed here: 
 
+![sma](imgs/sma.png)
+
+![wqma](imgs/wqma.png)
+
+![mfi](imgs/mfi.png)
+
+![rsi](imgs/rsi.png)
