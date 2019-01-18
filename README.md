@@ -115,5 +115,6 @@ by using the ![beta](imgs/beta.gif) obtained in the training set.
 
 9. Construct the spread terms ![xt](imgs/xt.gif) of the testing dataset using the following equation: ![dxtxt](imgs/dxtxt.gif).
 
-
+10. Calculate the T-scores for each individual feature in the testing partition by using the ![mu](imgs/mu.gif) 
+and ![sigma](imgs/sigma.gif) calculated for the training partition for each feature. 
 
