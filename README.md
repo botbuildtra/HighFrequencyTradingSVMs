@@ -94,4 +94,16 @@ The calculation for each of these features is detailed here:
 We can extend the spread model to include these technical indicators in addition to price because they exhibit similar 
 behaviors for both instruments of the pair. Furthermore, it will provide more context to the classifier in addition to the price. 
 
-## Feature Generation
+## Feature Generation Steps
+
+1. Split dataset into train and test partitions.
+
+2. Calculate features (price, sma, ewma, mfi, rsi) for each instrument.
+
+3. Calculate percent change for each feature.
+
+4. Run linear regression on the features of the training partition of instrument A and B. 
+This serves to estimate ![beta](imgs/beta.gif) according to the pairs trading spread model mentioned above. 
+It also calculates the residual term (
+
+2. 
