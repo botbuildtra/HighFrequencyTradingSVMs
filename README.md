@@ -121,3 +121,6 @@ and ![sigma](imgs/sigma.gif) calculated for the training partition for each feat
 At the end of this step, we have fitted the pairs trading spread model parameters and the OU process parameters to the training partition. 
 
 Furthermore, we have transformed both the training and testing partitions according to the parameters and calculated the T-score for them. 
+
+## Support Vector Machine
+
