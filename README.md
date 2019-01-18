@@ -74,3 +74,10 @@ integrate this process and use a linear regression to estimate the parameters ![
 
 These parameters are used later for feature creation. 
 
+## Feature Generation
+
+Typically, trading strategies will only apply the spread model to the price of the instruments. In this project, however, 
+we will extend it to also include the spread of some technical indicators, namely Simple Moving Average (SMA), Exponentially Weighted Moving Average (EWMA), Money Flow Index (Money Flow Index), and Relative Strength Index (Relative Strength Index). 
+
+The calculation for each of these features is detailed here: 
+
