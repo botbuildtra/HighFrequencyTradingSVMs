@@ -83,7 +83,7 @@ The calculation for each of these features is detailed here:
 
 ![sma](imgs/sma.png)
 
-![wqma](imgs/wqma.png)
+![ewma](imgs/ewma.png)
 
 ![mfi](imgs/mfi.png)
 
