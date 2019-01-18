@@ -52,7 +52,7 @@ of both securities in this instance are very similar.
 ![beta](imgs/beta.gif) represents the hedge ratio which serves to normalize the volatility between the instruments. 
 ![beta](imgs/beta.gif) tells us how much of instrument ![B](imgs/B.gif) to long/short for every 1 unit of ![A](imgs/A.gif) to long/short, creating a risk neutral position. We will use the close prices to calculate percent returns and for the other features. Past work has considered assumed that ![beta](imgs/beta.gif) remains constant over the duration of the dataset. For our dataset, however, different behavior in the spread is apparent in 2017 and 2018. This might be due to some change of intrinsic characteristics of the instruments. For our solution, we will assume treat ![beta](imgs/beta.gif) as variable and recalculate it periodically. 
 
-## Ornstein-Uhlenbeck(OU) Stochastic Process
+## Ornstein-Uhlenbeck (OU) Stochastic Process
 
 The Ornstein-Uhlenbeck Stochastic Process is used in finance to model the volatility of the underlying asset price process. The process can be considered to be a modification of the random walk (Weiner Process) in which the properties of the process have been changed so that there is a tendency to walk back towards a central location. The tendency to move back towards a central location is greater when the process is further away from the mean. Thus, this process is called "mean-reverting", and has many direct applications in pairs trading. 
 
@@ -72,4 +72,5 @@ and ![weiner](imgs/weiner.gif) denotes the Weiner process (standard Brownian mot
 In this project, we will start from the difference of returns at time ![t](imgs/t.gif). Then we will 
 integrate this process and use a linear regression to estimate the parameters ![theta](imgs/theta.gif),![mu](imgs/mu.gif), and ![sigma](imgs/sigma.gif). 
 
+These parameters are used later for feature creation. 
 
