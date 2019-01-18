@@ -110,6 +110,8 @@ It also calculates the residual term ![dxt](imgs/dxt.gif).
 
 7. Calculate T-scores for each individual feature according to the following equation:
 
+![tscore](imgs/tscore.gif)
+
 8. Transform the testing dataset by finding the spread residuals ![dxt](imgs/dxt.gif) 
 by using the ![beta](imgs/beta.gif) obtained in the training set. 
 
@@ -117,9 +119,6 @@ by using the ![beta](imgs/beta.gif) obtained in the training set.
 
 10. Calculate the T-scores for each individual feature in the testing partition by using the ![mu](imgs/mu.gif) 
 and ![sigma](imgs/sigma.gif) calculated for the training partition for each feature. 
-Use the following equation for each feature: 
-
-![tscore](imgs/tscore.gif)
 
 At the end of this step, we have fitted the pairs trading spread model parameters and the OU process parameters to the training partition. 
 
