@@ -21,10 +21,6 @@ identify two companies with similar trading characteristics whose equity securit
 This investment strategy entails buying the undervalued security while short-selling the overvalued security; thereby maintaining market neutrality.
 The position should be closed once the instruments return to statistical norms, earning the trader a profit. A good pair should share as many the same intrinsic characteristics as possible. 
 
-A canonical example of pairs trading would be with Pepsi and Coca Cola. Barring any drastic shifts in the characteristics of either company, the returns of Pepsi and Coca Cola should be very correlated. 
-
-![pairs](imgs/pairs_graph.jpg)
-
 In our project, we will be searching for pairs trading opportunities between Class A and Class C Google stocks. Since all of the underlying fundamentals of both instruments are similar with the exception of voting rights, this pair makes a very good candidate to explore. 
 
 However, since this pair of of instruments is obviously closely related, many other players in the market are ready to profit off of any mispricings within this pair. It is not expected for any mispricings to be available for a long time. As such, we need to work in a timeframe that is as fast-paced as possible. That is why we will be using a fast-paced high frequency pairs trading strategy to capture statistical arbitrage within the pricing of GOOGL and GOOG as soon as they occur. In our project, we will be creating features from the ticker data that we feed into a machine learning model to predict profitable pairs trading opportunities. 
@@ -96,6 +92,8 @@ behaviors for both instruments of the pair. Furthermore, it will provide more co
 
 ## Feature Generation Steps
 
+These are the steps to follow to process the data for the Support Vector Machine algorithm to be used.
+
 1. Split dataset into train and test partitions.
 
 2. Calculate features (price, sma, ewma, mfi, rsi) for each instrument.
@@ -104,6 +102,18 @@ behaviors for both instruments of the pair. Furthermore, it will provide more co
 
 4. Run linear regression on the features of the training partition of instrument A and B. 
 This serves to estimate ![beta](imgs/beta.gif) according to the pairs trading spread model mentioned above. 
-It also calculates the residual term (
+It also calculates the residual term ![dxt](imgs\dxt.gif).
 
-2. 
+5. Construct the spread terms ![xt](imgs\xt.gif) with the following equation: ![dxtxt](dxtxt.gif).
+
+6. Run lag 1 auto-regression on spread terms to get parameters according to OU model. 
+
+7. Calculate T-scores for each individual feature according to the following equation:
+
+8. Transform the testing dataset by finding the spread residuals ![dxt](imgs\dxt.gif) 
+by using the ![beta](imgs/beta.gif) obtained in the training set. 
+
+9. Construct the spread terms ![xt](imgs\xt.gif) of the testing dataset using the following equation: ![dxtxt](dxtxt.gif).
+
+
+
