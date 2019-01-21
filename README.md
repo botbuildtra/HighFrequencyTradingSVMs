@@ -124,3 +124,4 @@ Furthermore, we have transformed both the training and testing partitions accord
 
 ## Support Vector Machine
 
+The use of svm
