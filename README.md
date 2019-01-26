@@ -124,4 +124,127 @@ Furthermore, we have transformed both the training and testing partitions accord
 
 ## Support Vector Machine
 
-The use of svm
+Support Vector Machines (SVM) is an effective machine learning algorithm for 
+classification. The goal is to find a hyperplane that separates two classes 
+of data maximizes the margin between the classes. 
+
+### Label Generation
+
+Though SVMs can be used for multi-class classification, we will only be 
+utilizing it for binary classification in this instance for simplicity's sake. 
+We define the labels for the classes as follows: 
+
+![label](imgs/label.gif)
+
+If the residual of the spread drops, that means there is profit to be made 
+by shorting instrument A and longing instrument B before the residual drops. 
+We want to label the instances leading up to the shift in residual as a 1, 
+which indicates a profitable trading entry position. Otherwise we label the 
+instance as 0 indicating that we should stay calm and do nothing. We hold on 
+to the position for $window amount of minutes until either the residual 
+actually drops, or we run out of time and offload our position. 
+$threshold should be adjusted to the amount of profitability per trade, 
+with a higher threshold corresponding to higher per-trade profit, 
+but with less opportunities. 
+
+In our implementation, we set the $threshold parameter to 0.00075, leading 
+to around 1/3 of our dataset to have a label of 1. 
+
+Furthermore, we set our $window parameter to 5. This means that if the 
+residual drops by the $threshold amount within 5 minutes from the current 
+time, we will label the data point with a 1. The reason for this number 
+is because we want to minimize the exposure of holding the position 
+for a long time. 
+
+### Model Size
+
+Jiayu Wu's paper splits the dataset into a single 80/20 train-test split 
+for evaluation. Our method utilizes a sliding window approach for validation. 
+The reason for this is because the ![beta](imgs/beta.gif) value between 
+these two instruments is changing due to market conditions. As mentioned 
+earlier in this document, there is a noticeable shift in the relationship 
+between our two instruments in 2017 and 2018. We want to be able to capture 
+the fine-grain trend of the relationship of these two instruments, so we 
+should be constantly recalculating our parameters. 
+
+Because of this, we decided to evaluate our algorithm using a sliding 
+window size of 2000 for parameter calculation and a evaluation window 
+size of 100 for backtesting. The reasoning behind this is that 
+our sliding window size of 2000 is big enough to capture the current 
+trend of the spread and our evaluation window size of 100 serves to 
+ensure that our model is consistently updated with recent changes. 
+
+Here is an example of our sliding window approach with numbers corresponding to indices: 
+
+Example split_sliding(m_size=30000, e_size=10000)
+Fold 1: TRAIN: [0:30000] TEST: [30000:40000]
+Fold 2: TRAIN: [10000:40000] TEST: [40000:50000]
+Fold 3: TRAIN: [20000:50000] TEST: [50000:60000]
+Fold 4: TRAIN: [30000:60000] TEST: [60000:70000]
+Fold 5: TRAIN: [40000:70000] TEST: [70000:80000]
+
+Stratifying our data like this leads to the creation of 2005 folds. 
+
+### SVM Hyperparameter Tuning
+
+In order to increase the chances of finding the best set of hyperparameters 
+for our SVM, we need to perform a gridsearch over a set of possible candidate 
+hyperparameters. 
+
+Our grid search was done over the following set of hyperparameters: 
+
+params = [{ 'kernel': ['rbf'],
+            'C': [0.1,1,10,100], 
+            'gamma': [1, 0.1, 0.001, 0.0001], 
+            'cache_size': [2000], 
+            'class_weight': [{0: 0.5, 1: 0.5}, {0: 0.6, 1: 0.4}, 
+                             {0: 0.7, 1: 0.3}, {0: 0.8, 1: 0.2}]
+          }, 
+          { 'kernel': ['poly'], 
+            'C': [0.1, 1,10,100,], 
+            'gamma': [1, 0.1, 0.001, 0.0001],
+            'degree': [3, 5],
+            'cache_size': [2000],
+            'class_weight': [{0: 0.5, 1: 0.5}, 
+                             {0: 0.6, 1: 0.4}, {0: 0.7, 1: 0.3}]
+          }]
+
+The entire process of fit-transforming out data to the OU process 
+followed by training and evaluating 320,800 hyperparameter combinations 
+on all 2005 folds took around 12 hours on an i9-9900k. This could have 
+been sped up using dask's GridSearchCV implementation. 
+
+One thing to note is that the SVM library that scikit-learn uses (libSVC). 
+The training and inference speeds using the 'rbf' kernel is empirically 
+10x faster than that of 'poly' kernel. This is important to factor into 
+our rebalancing strategy because in high frequency trading, 
+speed is very important. 
+
+The metric we used when selecting the best set of hyperparameters factored 
+in two things: 
+
+1. Frequency of trades
+2. Precision of trades
+
+The amount we trade is important because it directly affects how profitable our 
+trading strategy is. We need to be squeezing as many profitable trading instances 
+as possible. 
+
+The precision of trades is important because we need to make sure that we make money 
+on each trade. 
+
+The total profitability of our algorithm can be approximated by: 
+
+(Number of trades) * (Money made per profitable trade) * (Precision of trades)
+
+The parameter set that demonstrated the best performance under the above mentioned 
+metrics was this one: 
+
+params = {'C': 100,
+   'cache_size': 2000,
+   'class_weight': {0: 0.5, 1: 0.5},
+   'gamma': 1,
+   'kernel': 'rbf'}
+
+## Backtesting
+
