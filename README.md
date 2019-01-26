@@ -177,10 +177,15 @@ ensure that our model is consistently updated with recent changes.
 Here is an example of our sliding window approach with numbers corresponding to indices: 
 
 Example split_sliding(m_size=30000, e_size=10000)
+
 Fold 1: TRAIN: [0:30000] TEST: [30000:40000]
+
 Fold 2: TRAIN: [10000:40000] TEST: [40000:50000]
+
 Fold 3: TRAIN: [20000:50000] TEST: [50000:60000]
+
 Fold 4: TRAIN: [30000:60000] TEST: [60000:70000]
+
 Fold 5: TRAIN: [40000:70000] TEST: [70000:80000]
 
 Stratifying our data like this leads to the creation of 2005 folds. 
@@ -211,7 +216,7 @@ params = [{ 'kernel': ['rbf'],
 
 The entire process of fit-transforming out data to the OU process 
 followed by training and evaluating 320,800 hyperparameter combinations 
-on all 2005 folds took around 12 hours on an i9-9900k. This could have 
+on all 2005 folds took around 12 hours on an intel i9-9900k. This could have 
 been sped up using dask's GridSearchCV implementation. 
 
 One thing to note is that the SVM library that scikit-learn uses (libSVC). 
