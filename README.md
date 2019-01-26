@@ -1,7 +1,7 @@
 # High Frequency Trading using Support Vector Machines
 This project implements a high frequency trading strategy that utilizes Support Vector Machines to capture statistical arbitrage in the pricing of Class A and Class C Google stocks. 
 
-We will demonstrate a trading algorithm that earns great profits (~53% returns over 2 years) with a sharpe ratio of 17.
+We will demonstrate a trading algorithm that earns great profits (~53% returns over 2 years) with a sharpe ratio of 11.
 
 This idea is heavily inspired by the following paper: http://cs229.stanford.edu/proj2015/028_report.pdf by Jiayu Wu. This project includes modifications into an actual trading strategy that uses rebalancing. 
 
