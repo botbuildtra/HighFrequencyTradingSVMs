@@ -5,15 +5,7 @@ We will demonstrate a trading algorithm that earns great profits (~53% returns o
 
 This idea is heavily inspired by the following paper: http://cs229.stanford.edu/proj2015/028_report.pdf by Jiayu Wu. This project includes modifications into a trading strategy that rebalances the beta ratio. 
 
-TODO: Further Model Tuning
-
-TODO: Model Explanations
-
-TODO: Results Graphs
-
-TODO: Diagnostic Graphs on labelling
-
-TODO: Labelled profit vs. Unlabelled profit
+TODO: Further Model Tuning, Model Explanations, Diagnostic Graphs on labelling, Labelled profit vs. Unlabelled profit
 
 ## Abstract
 D.S. Ehrman defines Pairs Trading as a nondirectional, relative-value investment strategy that seeks to
@@ -147,7 +139,7 @@ $threshold should be adjusted to the amount of profitability per trade,
 with a higher threshold corresponding to higher per-trade profit, 
 but with less opportunities. 
 
-In our implementation, we set the $threshold parameter to 0.00075, leading 
+In our implementation, we set the $threshold parameter to 0.0005, leading 
 to around 1/3 of our dataset to have a label of 1. 
 
 Furthermore, we set our $window parameter to 5. This means that if the 
