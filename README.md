@@ -251,4 +251,4 @@ params = {'C': 100,
 
 ## Backtesting
 
-We backtested
+We backtesteds
