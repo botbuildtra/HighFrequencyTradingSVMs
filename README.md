@@ -188,7 +188,7 @@ Fold 5: TRAIN: [40000:70000] TEST: [70000:80000]
 
 Stratifying our data like this leads to the creation of 2005 folds. 
 
-Below is a visualization of how we are using our data in this sliding window approach. 
+Below is a visualization of how we are using our t-scored data in this sliding window approach. 
 
 ![fold_plot](imgs/fold_plot.png)
 
