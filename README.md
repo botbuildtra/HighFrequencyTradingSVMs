@@ -284,3 +284,7 @@ The incorrect plots have a slightly negative profit, with a mean trade of -0.2 c
 ![noststitch](notebooks/plots/backtesting/nostradamus_stitch.jpg)
 
 The following plots show what our results would be if our model was completely clairvoyant (trading only when we knew the spread would narrow). The P/L graph shows that there is a maximum possible $9,000 dollars to be squeezed from this strategy. Since our model captures around $3,400, it means that we are approximately capturing 40% of the maximum profit possible from this strategy. Interestingly, the clairvoyant model only has an average of 14 cents of profit per trade, which is lower than the average profit per trade of only the correct trades made by our model. This means that our model, when it does guess correctly, tends to capture higher profit trades on average than the clairvoyant model. This information could be useful for deciding which positions might be more profitable than others. 
+
+# Further Exploration
+
+In this project, we detailed the 
