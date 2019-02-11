@@ -273,6 +273,14 @@ This histogram shows the minutes held per trade. It can be seen that most of the
 
 This plot shows the profitability of each trade based on the minutes held. It can be seen that the longer that the trade is held, the less profitable it usually is. This further validates the assumption that many instances of the spread being larger than normal shows correction almost immediately. 
 
-![correctstitch](notebooks/plots/backtesting/nostradamus_stitch.jpg)
+![correctstitch](notebooks/plots/backtesting/correct_stitch.jpg)
 
-Above shows the plots for only the correct trades (where the spread actually narrows) we have made with our SVM strategy. As you can see, we make about $800 more, with an mean average trade of 
+Above shows the plots for only the correct trades (where the spread actually narrows) we have made with our SVM strategy. As you can see, we make about $800 more, with an mean average trade of almost 20 cents per trade. As can be seen by the minutes held histogram, it seems like a majority of the correct trades are only held for around 1 minute - further indicating the fast mean reversion process. 
+
+![incorrectstitch](notebooks/plots/backtesting/incorrect_stitch.jpg)
+
+The incorrect plots have a slightly negative profit, with a mean trade of -0.2 cents per trade. This is good because our correct trades make a decent amount of money per trade, while our incorrect trades are almost break-even. This is very beneficial to our high frequency trading strategy because errors are forgiving. 
+
+![noststitch](notebooks/plots/backtesting/nostradamus_stitch.jpg)
+
+The following plots show what our results would be if our model was completely clairvoyant (trading only when we knew the spread would narrow). The P/L graph shows that there is a maximum possible $9,000 dollars to be squeezed from this strategy. Since our model captures around $3,400, it means that we are approximately capturing 40% of the maximum profit possible from this strategy. Interestingly, the clairvoyant model only has an average of 14 cents of profit per trade, which is lower than the average profit per trade of only the correct trades made by our model. This means that our model, when it does guess correctly, tends to capture higher profit trades on average than the clairvoyant model. This information could be useful for deciding which positions might be more profitable than others. 
