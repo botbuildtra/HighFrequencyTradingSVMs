@@ -272,3 +272,7 @@ This histogram shows the minutes held per trade. It can be seen that most of the
 ![dotminutesheld](notebooks/plots/backtesting/C-100_cache_size-2000_class_weight-005_105_gamma-1_kernel-rbfminutes_held_hist.jpg)
 
 This plot shows the profitability of each trade based on the minutes held. It can be seen that the longer that the trade is held, the less profitable it usually is. This further validates the assumption that many instances of the spread being larger than normal shows correction almost immediately. 
+
+![correctstitch](notebooks/plots/backtesting/correct_stitch.jpg)
+
+Above shows the plots for only the correct trades (where the spread actually narrows) we have made with our SVM strategy. As you can see, we make about $800 more, with an mean average trade of 
