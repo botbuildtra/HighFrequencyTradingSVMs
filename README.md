@@ -261,3 +261,6 @@ We backtested across all folds using the transformed and scaled t-scores mention
 
 The total profit and loss for our strategy over 2 years was $3444.43 for a return on investment of 35%. Notice that the profits for the latter half of the time period was much more than the profits for the initial half. More research needs to be done on why the model performance varied across time. Also notice that the return on investment is not a precise figure, since we don't utilize 100% of our maximum amount invested at all times. That situation only happens when we trade 5 times in a row and hold 5 pairs trading positions. 
 
+![pertrade](notebooks/plots/backtesting/C-100_cache_size-2000_class_weight-005_105_gamma-1_kernel-rbf_average_trade_hist.jpg)
+
+The total profit/loss per trade shows that we are making on average 11 cents per trade. We are making around 30,000 total trades out of a possible 200,000 trading opportunities over the past 2 years. Our trading precision (percent of trading opportunities are actually correct) is around 70.5%, which is quite good given that only ~33% of the dataset contains a trading signal. 
