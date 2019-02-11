@@ -264,3 +264,11 @@ The total profit and loss for our strategy over 2 years was $3444.43 for a retur
 ![pertrade](notebooks/plots/backtesting/C-100_cache_size-2000_class_weight-005_105_gamma-1_kernel-rbf_average_trade_hist.jpg)
 
 The total profit/loss per trade shows that we are making on average 11 cents per trade. We are making around 30,000 total trades out of a possible 200,000 trading opportunities over the past 2 years. Our trading precision (percent of trading opportunities are actually correct) is around 70.5%, which is quite good given that only ~33% of the dataset contains a trading signal. 
+
+![minutesheld](notebooks/plots/backtesting/C-100_cache_size-2000_class_weight-005_105_gamma-1_kernel-rbfminutes_held_hist1.jpg)
+
+This histogram shows the minutes held per trade. It can be seen that most of the trades are held for either 1 minute, or 5 minutes. This means that the trades we execute either immediately revert back to the mean within the next tick, netting us profit, or time out. This shows that our window size was adequetely chosen for this problem. 
+
+![dotminutesheld](notebooks/plots/backtesting/C-100_cache_size-2000_class_weight-005_105_gamma-1_kernel-rbfminutes_held_hist.jpg)
+
+This plot shows the profitability of each trade based on the minutes held. It can be seen that the longer that the trade is held, the less profitable it usually is. This further validates the assumption that many instances of the spread being larger than normal shows correction almost immediately. 
