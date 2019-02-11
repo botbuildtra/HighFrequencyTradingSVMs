@@ -255,7 +255,9 @@ params = {'C': 100,
 
 ## Backtesting
 
-We backtesteds
+We backtested across all folds using the transformed and scaled t-scores mentioned in the earlier section. One important thing to realize was that we didn't allow our strategy to enter a position whenever the residual was below zero. The reason for this being that betting on the spread to narrow when it was already narrower than expected led to a huge decrease in profits. This needs to be integrated into the SVM training for future steps. 
 
-Under Construction
-d
+![totalpl](notebooks/plots/backtesting/total_pl_C-100_cache_size-2000_class_weight-005_105_gamma-1_kernel-rbf.jpg)
+
+The total profit and loss for our strategy over 2 years was $3444.43 for a return on investment of 35%. Notice that the profits for the latter half of the time period was much more than the profits for the initial half. More research needs to be done on why the model performance varied across time. Also notice that the return on investment is not a precise figure, since we don't utilize 100% of our maximum amount invested at all times. That situation only happens when we trade 5 times in a row and hold 5 pairs trading positions. 
+
