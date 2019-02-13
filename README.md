@@ -287,4 +287,4 @@ The following plots show what our results would be if our model was completely c
 
 # Further Exploration
 
-In this project, we detailed the 
+In this project, we detailed the e
